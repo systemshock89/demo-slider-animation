@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider animation</title>
+    <meta name="description" content="Slider animation">
+    <meta property='og:title' content='Slider animation'>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="scss/main.scss">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header__container">
+        <a href="#" class="header__logo">
+            <img src="img/logo.svg" alt="logo" class="header__logo-img">
+        </a>
+        <ul class="header__menu">
+            <li class="header__menu-item"><a href="#" class="header__menu-link">About</a></li>
+            <li class="header__menu-item"><a href="#" class="header__menu-link">News</a></li>
+            <li class="header__menu-item"><a href="#" class="header__menu-link">Projects</a></li>
+            <li class="header__menu-item"><a href="#" class="header__menu-link">Contacts</a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="swiper slider">
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide slider__item">
+            <div class="slide__content">
+                <div class="slider__title">Abstract</div>
+                <div class="slider__text">Designing for the future</div>
+                <button class="slider__button">Join Us</button>
+            </div>
+        </div>
+        <div class="swiper-slide slider__item">
+            <div class="slide__content">
+                <div class="slider__title">Design</div>
+                <div class="slider__text">Designing for the future</div>
+                <button class="slider__button">Join Us</button>
+            </div>
+        </div>
+        <div class="swiper-slide slider__item">
+            <div class="slide__content">
+                <div class="slider__title">Future</div>
+                <div class="slider__text">Designing for the future</div>
+                <button class="slider__button">Join Us</button>
+            </div>
+        </div>
+        <div class="swiper-slide slider__item">
+            <div class="slide__content">
+                <div class="slider__title">Forever</div>
+                <div class="slider__text">Designing for the future</div>
+                <button class="slider__button">Join Us</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="slider-bottom">
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <video src="#" data-src="media/background.mp4" data-poster="img/poster.webp" class="slider__video lazy" muted></video>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+@import "../../scss/functions";
+
+:root {
+  --index: calc(1vw + 1vh);
+}
+
+.slider{
+  --swiper-theme-color: #4b4d53;
+  --swiper-navigation-size: 30px;
+  --swiper-navigation-sides-offset: 40px;
+  @media only screen and (max-width: 767px) {
+    --swiper-navigation-size: 20px;
+    --swiper-navigation-sides-offset: 15px;
+  }
+  --swiper-pagination-bottom: 20px;
+  --swiper-pagination-color: #afb3c0;
+  --swiper-pagination-bullet-inactive-color: #36373c;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+
+  height: 100dvh;
+  box-shadow: inset 0 50px 50px #000, inset 0 -50px 50px #000; // добавим тень, чтобы видео по краям экрана не казалось обрезанным
+
+  .swiper-button-prev,
+  .swiper-button-next{
+    border: 2px solid var(--swiper-theme-color);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    @media only screen and (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+    }
+
+    transition: color 0.1s ease-in-out, border 0.1s ease-in-out;
+    &:hover{
+      --swiper-theme-color: rgba(255 255 255 / .7);
+    }
+    &:active{
+      --swiper-theme-color: #4b4d53;
+    }
+  }
+}
+
+.slider__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide__content {
+  text-align: center;
+  padding-left: 70px;
+  padding-right: 70px;
+
+  // плавное затухание контента при пролистывании
+  opacity: 0;
+  transition: opacity .25s ease;
+  .swiper-slide-active & {
+    opacity: 1;
+  }
+}
+
+.slider__title{
+  font-size: betterClamp(26, 96);
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * 1.65);
+  margin-bottom: calc(var(--index) * 2.3);
+
+  position: relative;
+  &:after {
+    content: '';
+    height: 1px;
+    width: 20%;
+    background-color: rgba(255 255 255 / .35);
+    position: absolute;
+    left: 40%; // (100% - 20%) / 2
+    bottom: calc(var(--index) * -1);
+  }
+}
+
+.slider__text {
+  font-size: betterClamp(18, 22);
+  text-transform: uppercase;
+  color: rgba(255 255 255 / .8);
+  letter-spacing: calc(var(--index) * .24);
+}
+
+.slider__button {
+  --button-color: rgba(255 255 255 / .9);
+  padding: 9px 40px;
+  border-radius: 10em;
+  background-color: transparent;
+  border: 2px solid var(--button-color);
+  color: var(--button-color);
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  cursor: pointer;
+  margin-top: calc(var(--index) * 2.6);
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  &:hover{
+    background-color: #fff;
+    color: #000;
+  }
+  &:active{
+    background-color: transparent;
+  }
+}
+
+.slider__video {
+  position: absolute;
+  width: 94%;
+  height: 94%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  // гасим огонь при завершении анимации, чтоб лучше читался текст:
+  // (поставим для видео прозрачность)
+  opacity: .7;
+  transition: opacity 2s ease-out;
+}
+
+.slider__video_change {
+  opacity: 1;
+}
